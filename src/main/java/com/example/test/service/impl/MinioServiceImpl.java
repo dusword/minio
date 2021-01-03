@@ -39,7 +39,9 @@ public class MinioServiceImpl implements MinioService {
         }
         try {
             String fileName = file.getOriginalFilename();
-            String newName = "project-file/" + UUID.randomUUID().toString().replaceAll("-", "")
+            String newName =
+//                    "project-file/" +
+                            UUID.randomUUID().toString().replaceAll("-", "")
                     + fileName.substring(fileName.lastIndexOf("."));
 
             InputStream inputStream = file.getInputStream();
