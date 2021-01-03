@@ -10,7 +10,8 @@ public interface MinioService {
 
     AjaxResult minioUpload(MultipartFile file);
     AjaxResult minioDelete(String name);
-    AjaxResult minioVisit(HttpServletResponse response) throws Exception;
+//    AjaxResult minioVisit(HttpServletResponse response) throws Exception;
+    String minioVisit(HttpServletResponse response) throws Exception;
 
 
 }

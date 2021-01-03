@@ -77,15 +77,18 @@ public class MinioServiceImpl implements MinioService {
     /*查看图片
     * */
     @Override
-    public AjaxResult minioVisit(HttpServletResponse response) {
+//    public AjaxResult minioVisit(HttpServletResponse response) {
+        public String minioVisit(HttpServletResponse response) {
         String url = null;
         try {
             url = minioUtil.getObjectUrl(bucketName, picName);
             response.sendRedirect(url);
-            return AjaxResult.success("访问成功");
+//            return AjaxResult.success("访问成功");
+            return url;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return AjaxResult.fail("访问失败");
+//        return AjaxResult.fail("访问失败");
+        return "失败";
     }
 }

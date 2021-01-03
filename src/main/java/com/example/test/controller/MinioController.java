@@ -9,8 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 
 @CrossOrigin
-@RestController
 @RequestMapping("/minio")
+@RestController
 public class MinioController {
 
     @Autowired
@@ -27,7 +27,12 @@ public class MinioController {
     }
 
     @RequestMapping("/visit")
-    public AjaxResult visitPic(HttpServletResponse response)throws Exception{
+//    public AjaxResult visitPic(HttpServletResponse response)throws Exception{
+        public String visitPic(HttpServletResponse response)throws Exception{
         return minioService.minioVisit(response);
+    }
+    @RequestMapping("/test")
+    public String test() {
+        return "hello!";
     }
 }
