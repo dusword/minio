@@ -17,7 +17,7 @@ public class MinioController {
     public MinioService minioService;
 
     @PostMapping("/upload")
-    public AjaxResult uploadPic(MultipartFile file){
+    public String uploadPic(MultipartFile file){
         return minioService.minioUpload(file);
     }
 

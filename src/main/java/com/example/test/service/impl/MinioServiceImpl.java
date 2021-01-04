@@ -32,10 +32,10 @@ public class MinioServiceImpl implements MinioService {
     file 文件名
     * */
     @Override
-    public AjaxResult minioUpload(MultipartFile file) {
+    public String minioUpload(MultipartFile file) {
         if (file.isEmpty() || file.getSize() == 0) {
 //            return "文件为空";
-            return AjaxResult.fail("文件为空");
+            return "文件为空";
         }
         try {
             String fileName = file.getOriginalFilename();
@@ -50,10 +50,12 @@ public class MinioServiceImpl implements MinioService {
             inputStream.close();
 
             String url = minioUtil.getObjectUrl(bucketName, newName);
-            return AjaxResult.success(url);
+//            return AjaxResult.success(url);
+            return url;
         } catch (Exception e) {
             e.printStackTrace();
-            return AjaxResult.fail("上传失败");
+//            return AjaxResult.fail("上传失败");
+            return "上传失败";
         }
     }
 
