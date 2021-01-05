@@ -28,9 +28,6 @@ public class MinioServiceImpl implements MinioService {
     @Value("${minio.picName}")
     private String picName;
 
-    /*上传
-    file 文件名
-    * */
     @Override
     public String minioUpload(MultipartFile file) {
         if (file.isEmpty() || file.getSize() == 0) {
@@ -40,7 +37,6 @@ public class MinioServiceImpl implements MinioService {
         try {
             String fileName = file.getOriginalFilename();
             String newName =
-//                    "project-file/" +
                             UUID.randomUUID().toString().replaceAll("-", "")
                     + fileName.substring(fileName.lastIndexOf("."));
 
